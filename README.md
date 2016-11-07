@@ -10,11 +10,11 @@ Para a disciplina do Profº. Luidi Simonetti
 
 2. Funções e Algoritmos
 
-  - [] Algoritmo de força bruta
-  - [] Algoritmo backtracking
-  - [] Algoritmo branch and bound
-  - [] Algoritmo utilizando a heurística XXXX
-  - [] Função para gerar um grafo aleatório
+  - [ ] Algoritmo de força bruta
+  - [ ] Algoritmo backtracking
+  - [ ] Algoritmo branch and bound
+  - [ ] Algoritmo utilizando a heurística XXXX
+  - [ ] Função para gerar um grafo aleatório
 
 3. Instruções
     * Para rodar o algoritmo
