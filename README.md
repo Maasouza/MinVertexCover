@@ -2,7 +2,7 @@
 #<p align='center'>EEL857 - Otimização em Grafos - UFRJ 2016.2</p>
 <p align='center'>Algoritmos para resolução do problema de cobertura minima de vertices</p>
 
-Trabalho desenvolvido por: [Marcos Aurélio](https://github.com/Maasouza)
+Trabalho desenvolvido por: [Marcos Aurélio](https://github.com/Maasouza<br>
 Para a disciplina do Profº. Luidi Simonetti
 
 1. Tecnologias
