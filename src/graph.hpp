@@ -1,25 +1,25 @@
 #include <cstdio>
 #include <cstdlib>
 #include <iostream>
-#include <list>
+#include <vector>
 
 using namespace std;
 
 class Graph{
     int V;
     int E;
-    list<int> *adj;
+    vector<int> *adj;
 public:
     Graph(string infile);
     void addEdge(int i, int j);
     void removeEdge(int i,int j);
 
-    int getV();
-    int getE();
+    int numV();
+    int numE();
 
-    list<int> getNeighbors(int v);
-    list<list<int>> getEdges();
+    vector<int> getNeighbors(int v);
+    vector<int>* getEdges();
 
-    list<int> cover();
+    vector<int> cover();
 };
 

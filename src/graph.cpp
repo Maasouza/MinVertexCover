@@ -14,7 +14,7 @@ Graph::Graph(string infile){
     if(graph.is_open()){
         getline(graph,nVertices);
         V = atoi(nVertices.c_str());
-        adj = new list<int>[V];
+        adj = new vector<int>[V];
         int i,j;
         while(!graph.eof()){
             graph>>i;
@@ -32,8 +32,8 @@ Graph::Graph(string infile){
 
 void Graph::removeEdge(int i,int j){
     E--;
-    adj[i].remove(j);
-    adj[j].remove(i);
+    adj[i].erase(adj->begin()+(j));
+    adj[j].erase(adj->begin()+(i));
 }
 
 void Graph::addEdge(int i,int j){
@@ -43,26 +43,26 @@ void Graph::addEdge(int i,int j){
 }
 
 
-//------------------------------------------------ LISTS
+//------------------------------------------------ vectorS
 
-list<int> Graph::getNeighbors(int v){
+vector<int> Graph::getNeighbors(int v){
     return adj[v];
 }
 
-list<list<int>> Graph::getEdges(){
+vector<int>* Graph::getEdges(){
     return adj;
 }
 
 
-list<int> Graph::cover(){
+vector<int> Graph::cover(){
     //arrumar codigo para que receba valores ja marcados
-    list<int> cobertura;
+    vector<int> cobertura;
     bool visited[V];
     for (int i=0; i<V; i++){
         visited[i] = false;
     }
 
-    list<int>::iterator i;
+    vector<int>::iterator i;
     for (int u=0; u<V; u++){
         if (visited[u] == false){
             for (i= adj[u].begin(); i != adj[u].end(); ++i){
@@ -73,6 +73,7 @@ list<int> Graph::cover(){
                      break;
                 }
             }
+            cobertura.push_back(u);
         }
     }
 
@@ -81,10 +82,10 @@ list<int> Graph::cover(){
 
 //------------------------------------------------ INTEGER RETRUNS
 
-int Graph::getV(){
+int Graph::numV(){
     return V;
 }
 
-int Graph::getE(){
+int Graph::numE(){
     return E;
 }

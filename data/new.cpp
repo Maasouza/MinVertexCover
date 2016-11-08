@@ -73,6 +73,30 @@ int main(int argc, char *argv[]) {
         }
     }
 
+    ofstream json_graph("graph.json");
+
+    json_graph<<"{ \"nodes\": [";
+    for(int i = 0; i < nVertices ; i++){
+        if(i!=nVertices-1){
+            json_graph<<"{\"id\":\""<<i<<"\" , \"group\": 1},";
+        }else{
+            json_graph<<"{\"id\":\""<<i<<"\" , \"group\": 1}],";
+        }
+    }
+    json_graph<<"\"links:\":[";
+    for(int i = 0;i< nVertices ; i++){
+        for(int j = 0 ; j < adj[i].size(); j++){
+            if(adj[i][j]<i){
+                if(!((i==nVertices-1) and (j==adj[i].size()-1))){
+                    json_graph<< "{\"source\": \""<<i<<"\", \"target\": \""<<adj[i][j]<<"\", \"value\": 1},";
+                }else{
+                    json_graph<< "{\"source\": \""<<i<<"\", \"target\": \""<<adj[i][j]<<"\", \"value\": 1}]}";
+                }
+            }
+        }
+    }
+
+    json_graph.close();
     new_graph.close();
 
     return 1;
