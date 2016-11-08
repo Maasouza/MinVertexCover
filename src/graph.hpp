@@ -11,7 +11,15 @@ class Graph{
     list<int> *adj;
 public:
     Graph(string infile);
-    void addEdge(int j, int i);
+    void addEdge(int i, int j);
+    void removeEdge(int i,int j);
+    list<int> getNeighbors(int v);
+
+    int getV();
+    int getE();
+
+    list<list<int>> getEdges();
+
     list<int> cover();
 };
 

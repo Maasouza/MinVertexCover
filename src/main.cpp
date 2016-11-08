@@ -3,6 +3,8 @@
 #include <cstdlib>
 #include <cstring>
 
+#include "graph.hpp"
+
 using namespace std;
 
 void print_info(char* name){
@@ -26,6 +28,8 @@ int main(int argc, char *argv[]) {
         print_info(argv[0]);
         return 1;
     }
+
+    Graph g(infile);
 
     return 1;
 }

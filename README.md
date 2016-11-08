@@ -27,7 +27,7 @@ Para a disciplina do Profº. Luidi Simonetti
     * Para gerar um grafo
 
             git clone https://github.com/maasouza/minvertexcover.git
-            cd minvertexcover/src
+            cd minvertexcover/data
             make
             ./new --v nVertices --d densidade --path ../path/to/new_graph.dat
 
