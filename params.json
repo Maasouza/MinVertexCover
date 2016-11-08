@@ -1,0 +1,6 @@
+{
+  "name": "Minvertexcover",
+  "tagline": "EEL857 - Otimização em Grafos - UFRJ 2016.2 ",
+  "body": "\r\n#<p align='center'>EEL857 - Otimização em Grafos - UFRJ 2016.2</p>\r\n<p align='center'>Algoritmos para resolução do problema de cobertura minima de vertices</p>\r\n\r\nTrabalho desenvolvido por: [Marcos Aurélio](https://github.com/Maasouza)<br>\r\nPara a disciplina do Profº. Luidi Simonetti\r\n\r\n1. Tecnologias\r\n  * C++\r\n\r\n2. Funções e Algoritmos\r\n\r\n  - [ ] Algoritmo de força bruta\r\n  - [ ] Algoritmo backtracking\r\n  - [ ] Algoritmo branch and bound\r\n  - [ ] Algoritmo utilizando a heurística XXXX\r\n  - [X] Função para gerar um grafo aleatório\r\n\r\n3. Instruções\r\n    * [Download](https://github.com/Maasouza/MinVertexCover/archive/master.zip)\r\n\r\n    * Clone\r\n\r\n            git clone https://github.com/maasouza/minvertexcover.git\r\n\r\n    * Para rodar o algoritmo\r\n\r\n            cd minvertexcover/src\r\n            make\r\n            ./main --path ../path/to/graph.dat --type [BF|BT|BB|HT]\r\n\r\n    * Para gerar um grafo\r\n\r\n            cd minvertexcover/data\r\n            make\r\n            ./new --v nVertices --d densidade --path ../path/to/new_graph.dat\r\n\r\n\r\n\r\n\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
