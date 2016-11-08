@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
 
     Graph g(infile);
 
-    vector<int> c = g.cover();
+    vector<0int> c = g.cover();
     for(int i = 0 ; i < c.size() ;i++){
         cout<<c[i]<<endl;
     }
