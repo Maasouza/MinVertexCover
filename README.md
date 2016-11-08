@@ -21,7 +21,7 @@ Para a disciplina do Profº. Luidi Simonetti
 
     * Clone
 
-        git clone https://github.com/maasouza/minvertexcover.git
+          git clone https://github.com/maasouza/minvertexcover.git
 
     * Para rodar o algoritmo
 
