@@ -5,6 +5,8 @@
 
 using namespace std;
 
+//------------------------------------------------ Construtor
+
 Graph::Graph(string infile){
     ifstream graph(infile.c_str());
     string nVertices;
@@ -25,11 +27,32 @@ Graph::Graph(string infile){
     graph.close();
 }
 
+
+//--------------------------------------------------- VOID
+
+void Graph::removeEdge(int i,int j){
+    E--;
+    adj[i].remove(j);
+    adj[j].remove(i);
+}
+
 void Graph::addEdge(int i,int j){
     E++;
     adj[i].push_back(j);
     adj[j].push_back(i);
 }
+
+
+//------------------------------------------------ LISTS
+
+list<int> Graph::getNeighbors(int v){
+    return adj[v];
+}
+
+list<list<int>> Graph::getEdges(){
+    return adj;
+}
+
 
 list<int> Graph::cover(){
     //arrumar codigo para que receba valores ja marcados
@@ -56,15 +79,7 @@ list<int> Graph::cover(){
     return cobertura;
 }
 
-void Graph::removeEdge(int i,int j){
-    E--;
-    adj[i].remove(j);
-    adj[j].remove(i);
-}
-
-list<int> Graph::getNeighbors(int v){
-    return adj[v];
-}
+//------------------------------------------------ INTEGER RETRUNS
 
 int Graph::getV(){
     return V;

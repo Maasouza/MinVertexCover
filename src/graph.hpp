@@ -13,11 +13,11 @@ public:
     Graph(string infile);
     void addEdge(int i, int j);
     void removeEdge(int i,int j);
-    list<int> getNeighbors(int v);
 
     int getV();
     int getE();
 
+    list<int> getNeighbors(int v);
     list<list<int>> getEdges();
 
     list<int> cover();
