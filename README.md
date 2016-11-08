@@ -17,12 +17,9 @@ Para a disciplina do Profº. Luidi Simonetti
   - [X] Função para gerar um grafo aleatório
 
 3. Instruções
-        <br>Download
 
-            https://github.com/Maasouza/MinVertexCover/archive/master.zip
-
-        or Clone
-
+            [Download](https://github.com/Maasouza/MinVertexCover/archive/master.zip)
+            Or
             git clone https://github.com/maasouza/minvertexcover.git
 
     * Para rodar o algoritmo
