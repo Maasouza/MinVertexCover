@@ -14,7 +14,7 @@ Para a disciplina do Profº. Luidi Simonetti
   - [ ] Algoritmo backtracking
   - [ ] Algoritmo branch and bound
   - [ ] Algoritmo utilizando a heurística XXXX
-  - [ ] Função para gerar um grafo aleatório
+  - [X] Função para gerar um grafo aleatório
 
 3. Instruções
     * Para rodar o algoritmo

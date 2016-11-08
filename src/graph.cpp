@@ -22,6 +22,7 @@ Graph::Graph(string infile){
     }else{
         cout<<"Falha ao abrir o arquivo"<<endl;
     }
+    graph.close();
 }
 
 void Graph::addEdge(int i,int j){
