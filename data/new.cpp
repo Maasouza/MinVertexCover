@@ -46,8 +46,9 @@ int main(int argc, char *argv[]) {
 
     srand48(time(0));
 
-    for(int i = 0 ; i < nVertices ; i++){
+    for(int i = 0 ; i < nVertices -1; i++){
         adj[i].push_back(i+1);
+        adj[i+1].push_back(i);
         new_graph<<"\n"<<i<<" "<<i+1;
         nArestas++;
     }
@@ -57,15 +58,18 @@ int main(int argc, char *argv[]) {
         int i = lrand48()%nVertices;
         int j = lrand48()%nVertices;
         bool in = false;
-        for(int k = 0 ; k < adj[i].size(); k++){
-            if(adj[i][k]==j){
-                in=true;
+        if(i != j){
+            for(int k = 0 ; k < adj[i].size(); k++){
+                if(adj[i][k]==j){
+                    in=true;
+                }
             }
-        }
-        if(!in){
-            adj[i].push_back(j);
-            new_graph<<"\n"<<i<<" "<<j;
-            nArestas++;
+            if(!in){
+                adj[i].push_back(j);
+                adj[j].push_back(i);
+                new_graph<<"\n"<<i<<" "<<j;
+                nArestas++;
+            }
         }
     }
 
