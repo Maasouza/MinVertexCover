@@ -35,6 +35,12 @@ Para a disciplina do Profº. Luidi Simonetti
             make
             ./new --v nVertices --d densidade --path ../path/to/new_graph.dat
 
+    * Visualizar o grafo
+
+            O grafo pode ser visualizado localmente.
+            Basta abrir o arquivo index.html (Firefox only).
+
+
 
 
 
