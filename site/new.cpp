@@ -83,7 +83,7 @@ int main(int argc, char *argv[]) {
             json_graph<<"{\"id\":\""<<i<<"\" , \"group\": 1}],";
         }
     }
-    json_graph<<"\"links:\":[";
+    json_graph<<"\"links\":[";
     for(int i = 0;i< nVertices ; i++){
         for(int j = 0 ; j < adj[i].size(); j++){
             if(adj[i][j]<i){
