@@ -1,3 +1,4 @@
+
 <html><head><meta charset="utf-8">
 <style>
 
@@ -45,12 +46,13 @@ d3.json("graph.json", function(error, graph) {
     .selectAll("circle")
     .data(graph.nodes)
     .enter().append("circle")
-      .attr("r", 5)
-      .attr("fill", function(d) { return color(d.group); })
+      .attr("r", 8)
+      .attr("fill", "lightskyblue")
       .call(d3.drag()
           .on("start", dragstarted)
           .on("drag", dragged)
-          .on("end", dragended));
+          .on("end", dragended))
+      .on("click",toggleColor)  ;
 
   node.append("title")
       .text(function(d) { return d.id; });
@@ -91,6 +93,15 @@ function dragended(d) {
   d.fx = null;
   d.fy = null;
 }
+
+var toggleColor = (function(){
+   var currentColor = "lightskyblue";
+
+    return function(){
+        currentColor = currentColor == "lightskyblue" ? "red" : "lightskyblue";
+        d3.select(this).style("fill", currentColor);
+    }
+})();
 
 </script>
 </body></html>
