@@ -39,6 +39,8 @@ Para a disciplina do Profº. Luidi Simonetti
 
             O grafo pode ser visualizado localmente.
             Basta abrir o arquivo index.html (Firefox only).
+            Exemplo https://maasouza.github.io/MinVertexCover/site/
+
 
 
 
