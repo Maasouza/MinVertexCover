@@ -54,33 +54,77 @@ vector<int>* Graph::getEdges(){
 }
 
 
-vector<int> Graph::cover(){
-    //arrumar codigo para que receba valores ja marcados
+vector<int> Graph::coverHeuristica(){
+
     vector<int> cobertura;
+    int  grauV[V];
     bool visited[V];
+    int marcados = 0;
     for (int i=0; i<V; i++){
         visited[i] = false;
+        grauV[i]=adj[i].size();
     }
 
-    vector<int>::iterator i;
-    for (int u=0; u<V; u++){
-        if (visited[u] == false){
-            for (i= adj[u].begin(); i != adj[u].end(); ++i){
-                int v = *i;
-                if (visited[v] == false){
-                     visited[v] = true;
-                     visited[u]  = true;
-                     break;
+    do{
+
+        int v = maiorGrau(grauV,visited);
+        if(v==-1){
+            cout<<"deu xabú"<<endl;
+            break;
+        }
+        if(!visited[v]){
+            visited[v] = true;
+            grauV[v] = 0;
+            cobertura.push_back(v);
+            marcados++;
+            for(int i = 0 ; i < adj[v].size() ; i++){
+                if(!visited[adj[v][i]]){
+                    marcados++;
+                    visited[adj[v][i]] = true;
+                    grauV[adj[v][i]] = 0;
+                    for(int j = 0 ; j < adj[i].size() ; j++ ){
+                        grauV[adj[i][j]]--;
+                    }
                 }
             }
-            cobertura.push_back(u);
         }
-    }
+    }while(marcados!=V);
 
     return cobertura;
 }
 
+
 //------------------------------------------------ INTEGER RETRUNS
+
+int Graph::maiorGrau(int* graus,bool* marcados){
+
+    srand(time(0));
+
+    int m_grau=0;
+    int* g = graus;
+
+    bool* m = marcados;
+
+    vector<int> index_vector;
+
+    for(int i = 0 ; i < V ; i++){
+        if(m_grau<g[i] && !m[i]){
+            index_vector.clear();
+            m_grau = g[i];
+            index_vector.push_back(i);
+        }else{
+            if(m_grau==g[i] && !m[i]){
+                index_vector.push_back(i);
+            }
+        }
+    }
+
+    if(index_vector.size()<1) return -1;
+
+    int index = rand()%index_vector.size();
+
+    return index_vector[index];
+}
 
 int Graph::numV(){
     return V;
