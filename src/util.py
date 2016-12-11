@@ -2,6 +2,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import operator
 import time
+import random
 
 
 
@@ -20,12 +21,13 @@ def pre_process(graph):
 
     g = nx.Graph()
     g.add_edges_from(graph.edges())
-    marked = [0 for i in range(len(graph.nodes()))]
-    cover = [0 for i in range(len(graph.nodes()))]
+    marked = [False for i in range(len(graph.nodes()))]
+    cover = [False for i in range(len(graph.nodes()))]
     visited = 0
     changed = True
     times = 0
     removed = 0
+
     start = time.time()
     while(changed and visited != len(graph.nodes())):
         """Enquanto houver folhas"""
@@ -71,6 +73,18 @@ def draw_results(graph,cover=None):
     plt.show()
 
 
-def max_degree_vertex(graph):
-        vertex_degree_dict = nx.degree(graph)
-        return max(vertex_degree_dict.iteritems(), key = operator.itemgetter(1))[0]
+def max_degree_vertex(graph,vertexs = None):
+        if(vertexs!=None):
+            vertex_degree_dict = nx.degree(graph,vertexs)
+        else:
+            vertex_degree_dict = nx.degree(graph)
+        random.seed()
+        vertex = sorted(vertex_degree_dict.iteritems(), key = lambda x : x[1], reverse = True)
+        out = []
+        degree = vertex[0][1]
+        for i in vertex:
+            if(i[1]!=degree):
+                break
+            out.append(i[0])
+        return random.choice(out)
+        #return max(vertex_degree_dict.iteritems(), key = operator.itemgetter(1))[0]
