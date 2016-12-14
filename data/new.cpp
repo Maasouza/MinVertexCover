@@ -46,14 +46,6 @@ int main(int argc, char *argv[]) {
 
     srand48(time(0));
 
-    for(int i = 0 ; i < nVertices -1; i++){
-        adj[i].push_back(i+1);
-        adj[i+1].push_back(i);
-        new_graph<<"\n"<<i<<" "<<i+1;
-        nArestas++;
-    }
-
-
     while(nArestas<nMaxArestas){
         int i = lrand48()%nVertices;
         int j = lrand48()%nVertices;

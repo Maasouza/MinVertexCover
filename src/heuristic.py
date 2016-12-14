@@ -23,16 +23,6 @@ def heuristic_cover(graph , preprocess = False):
         g.remove_node(v)
 
     end = time.time()
-    print("--- Heuristica ---")
-    print("--- Exec time: "+str((end-start)*1000)+" sec ---")
+    print("--- Heuristica")
+    print("\tExec time: "+str((end-start))+" sec")
     return cover
-
-g = nx.Graph()
-load_graph(g,"../data/grafo.dat")
-
-c = heuristic_cover(g)
-
-draw_results(g,c)
-
-
-

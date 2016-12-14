@@ -9,7 +9,7 @@ import random
 def load_graph(graph,file_name):
     """Carrega as arestas do grafo"""
     f = open(file_name,"r")
-    f.readline()#jump number of vertexs
+    f.readline()#jump number of vertices
     edges=[]
     for line in f:
         edge = list(map(int,line.split(" ")))
@@ -54,17 +54,20 @@ def pre_process(graph):
                     marked[v]=True
                 visited+=1
     end = time.time()
-    print("--- Pre processamento ---")
-    print(str(removed)+" vertices removidos em "+str(times)+" iteracoes")
-    print("--- Exec time: "+str((end-start)*1000)+" sec ---")
+    print("--- Pre processamento")
+    print("\t"+str(removed)+" vertices removidos em "+str(times)+" iteracoes")
+    print("\tExec time: "+str((end-start))+" sec ")
     return cover,marked,visited
 
+def draw_results(graph,cover=None,mode = 0):
+    if(mode == 0):
+        cover_list = []
+        for i in range(len(cover)):
+            if(cover[i]):
+                cover_list.append(i)
+    else:
+        cover_list = cover[:]
 
-def draw_results(graph,cover=None):
-    cover_list = []
-    for i in range(len(cover)):
-        if(cover[i]):
-            cover_list.append(i)
     pos = nx.spring_layout(graph)
     nx.draw_networkx_nodes(graph,pos,node_color='black')
     nx.draw_networkx_nodes(graph,pos,nodelist = cover_list,node_color='r')
@@ -72,10 +75,21 @@ def draw_results(graph,cover=None):
     nx.draw_networkx_labels(graph,pos,font_color='white')
     plt.show()
 
+def isCover(g,cover):
+    marked = [0 for i in range(len(g.nodes()))]
+    for i in cover:
+        marked[i] = 1
+        for j in g.neighbors(i):
+            marked[j] = 1
 
-def max_degree_vertex(graph,vertexs = None):
-        if(vertexs!=None):
-            vertex_degree_dict = nx.degree(graph,vertexs)
+    if(sum(marked) == len(marked)):
+        return True
+    else:
+        return False
+
+def max_degree_vertex(graph,vertices = None):
+        if(vertices!=None):
+            vertex_degree_dict = nx.degree(graph,vertices)
         else:
             vertex_degree_dict = nx.degree(graph)
         random.seed()
@@ -87,4 +101,12 @@ def max_degree_vertex(graph,vertexs = None):
                 break
             out.append(i[0])
         return random.choice(out)
-        #return max(vertex_degree_dict.iteritems(), key = operator.itemgetter(1))[0]
+    #return max(vertex_degree_dict.iteritems(), key = operator.itemgetter(1))[0]
+
+def convert(data):
+    """funcao que adciona A a C se data[A]==1"""
+    c = []
+    for i in range(len(data)):
+        if data[i] == 1:
+            c.append(i)
+    return c
