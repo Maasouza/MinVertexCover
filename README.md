@@ -6,14 +6,14 @@ Trabalho desenvolvido por: [Marcos Aurélio](https://github.com/Maasouza)<br>
 Para a disciplina do Profº. Luidi Simonetti
 
 1. Tecnologias
-  * C++
+  * Python
 
 2. Funções e Algoritmos
 
-  - [ ] Algoritmo de força bruta
+  - [X] Algoritmo de força bruta
   - [ ] Algoritmo backtracking
-  - [ ] Algoritmo branch and bound
-  - [ ] Algoritmo utilizando a heurística XXXX
+  - [X] Algoritmo branch and bound
+  - [X] Algoritmo utilizando a heurística de vertice de maior grau
   - [X] Função para gerar um grafo aleatório
 
 3. Instruções
@@ -22,12 +22,6 @@ Para a disciplina do Profº. Luidi Simonetti
     * Clone
 
             git clone https://github.com/maasouza/minvertexcover.git
-
-    * Para rodar o algoritmo
-
-            cd minvertexcover/src
-            make
-            ./main --path ../path/to/graph.dat --type [BF|BT|BB|HT]
 
     * Para gerar um grafo
 
