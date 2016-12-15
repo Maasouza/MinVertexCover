@@ -60,6 +60,8 @@ def pre_process(graph):
     return cover,marked,visited
 
 def draw_results(graph,cover=None,mode = 0):
+    """Gera uma imagem com o grafo e a cobertura"""
+
     if(mode == 0):
         cover_list = []
         for i in range(len(cover)):
@@ -76,6 +78,7 @@ def draw_results(graph,cover=None,mode = 0):
     plt.show()
 
 def isCover(g,cover):
+    """verifica se cover é cobertura de um grafo"""
     marked = [0 for i in range(len(g.nodes()))]
     for i in cover:
         marked[i] = 1
@@ -92,16 +95,10 @@ def max_degree_vertex(graph,vertices = None):
             vertex_degree_dict = nx.degree(graph,vertices)
         else:
             vertex_degree_dict = nx.degree(graph)
-        random.seed()
-        vertex = sorted(vertex_degree_dict.iteritems(), key = lambda x : x[1], reverse = True)
-        out = []
-        degree = vertex[0][1]
-        for i in vertex:
-            if(i[1]!=degree):
-                break
-            out.append(i[0])
-        return random.choice(out)
-    #return max(vertex_degree_dict.iteritems(), key = operator.itemgetter(1))[0]
+
+        return max(vertex_degree_dict.iteritems(), key = operator.itemgetter(1))[0]
+
+
 
 def convert(data):
     """funcao que adciona A a C se data[A]==1"""
